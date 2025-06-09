@@ -29,6 +29,35 @@ public class Board {
         return true;
     }
 
+	public boolean isMoveValid(char xStartChar, int yStart, char xEndChar, int yEnd) {
+        int xStart = xStartChar - 'a';
+        int xEnd = xEndChar - 'a';
+		yStart = 8 - yStart;
+		yEnd = 8 - yEnd;
+		Piece obj = board[yStart][xStart];
+        if (obj instanceof Pawn) {
+            boolean hasMoved = false;
+            if (!hasMoved) {
+                int maxMove = 2;
+                if (Math.abs(yEnd - yStart) <= maxMove && xStartChar == xEndChar) {
+                    System.out.println("move is valid");
+                    hasMoved = true;
+                    return true;
+                }
+            }
+            else {
+                int maxMove = 1;
+                if (yStart <= maxMove && xStartChar == 'a') {
+                    System.out.println("move is valid");
+                    return true;
+                }
+            }
+            System.out.println("move is not valid");
+            return false;
+        }
+        return false;
+    }
+
 	public String toString() {
         StringBuilder result = new StringBuilder();
         
