@@ -1,6 +1,10 @@
-class Queen extends Piece {
+{
     public Queen(String color) {
         super(color);
+    }
+    
+    public String getColor() {
+        return color;
     }
 
     @Override
