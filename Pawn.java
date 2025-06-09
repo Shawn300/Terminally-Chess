@@ -2,7 +2,11 @@ class Pawn extends Piece {
     public Pawn(String color) {
         super(color);
     }
-
+    
+    public String getColor() {
+        return color;
+    }
+    
     @Override
     public String toString() {
         if ("white".equals(this.color)) {
