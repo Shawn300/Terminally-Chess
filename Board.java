@@ -29,6 +29,75 @@ public class Board {
         return true;
     }
 
+	public boolean isMoveValid(char xStartChar, int yStart, char xEndChar, int yEnd) {
+        	int xStart = xStartChar - 'a';
+        	int xEnd = xEndChar - 'a';
+		yStart = 8 - yStart;
+		yEnd = 8 - yEnd;
+		Piece obj = board[yStart][xStart];
+		char bound1 = '`';
+		char bound2 = 'i';
+	    if (xStartChar > bound1 && xEndChar < bound2 && yStart >= 1 && yStart <= 8) {
+            if (obj instanceof Pawn) {
+                boolean hasMoved = false;
+                if (!hasMoved) {
+                    int maxMove = 2;
+                    if (Math.abs(yEnd - yStart) <= maxMove && xStart == xEnd) {
+                        System.out.println("move is valid");
+                        hasMoved = true;
+                        return true;
+                    }
+                    else {
+                        System.out.println("move is not valid");
+                        return false;
+                    }
+                }
+                else {
+                    int maxMove = 1;
+                    if (yStart <= maxMove && xStart == xEnd) {
+                        System.out.println("move is valid");
+                        return true;
+                    }
+                }
+                System.out.println("move is not valid");
+                return false;
+            }
+            else if (obj instanceof Bishop) {
+                if (Math.abs(yEnd - yStart) == Math.abs(xEnd - xStart)) {
+                    System.out.println("move is valid");
+                    return true;
+                }
+                else {
+                    System.out.println("move is not valid");
+                    return false;
+                }
+            }
+            else if (obj instanceof Knight) {
+                if ((Math.abs(xEnd - xStart) == 1 && Math.abs(yEnd - yStart) == 2) ||
+                (Math.abs(xEnd - xStart) == 2 && Math.abs(yEnd - yStart) == 1)) {
+                    System.out.println("move is valid");
+                    return true;
+                }
+                else {
+                    System.out.println("move is not valid");
+                    return false;
+                }
+            }
+            else if (obj instanceof Rook) {
+                if (xEndChar == xStartChar || Math.abs(xEndChar) >= xStartChar) {
+                    System.out.println("move is valid");
+                    return true;
+                }
+                else {
+                    System.out.println("move is not valid");
+                    return false;
+                }
+            }
+        }
+        System.out.println("move is not valid");
+        return false;
+    }
+
 	public String toString() {
         StringBuilder result = new StringBuilder();
         
