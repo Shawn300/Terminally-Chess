@@ -2,7 +2,11 @@ class Knight extends Piece {
     public Knight(String color) {
         super(color);
     }
-
+    
+    public String getColor() {
+        return color;
+    }
+    
     @Override
     public String toString() {
         if ("white".equals(this.color)) {
