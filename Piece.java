@@ -9,6 +9,10 @@ class Piece {
         this.color = color;
     }
 
+	public boolean isValidPath(int xStart, int yStart, int xEnd, int yEnd) {
+		return false;
+	}
+
     @Override
     public String toString() {
         return "?"; 
