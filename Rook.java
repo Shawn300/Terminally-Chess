@@ -3,6 +3,13 @@ class Rook extends Piece {
         super(color);
     }
 
+	public boolean isValidPath(int xStart, int yStart, int xEnd, int yEnd) {
+		if (xStart == xEnd || yStart == yEnd) {
+            return true;
+        }
+        return false;
+	}
+
     @Override
     public String toString() {
         if ("white".equals(this.color)) {
