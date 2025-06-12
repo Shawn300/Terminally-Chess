@@ -3,6 +3,13 @@ class Bishop extends Piece {
         super(color);
     }
 
+	public boolean isValidPath(int xStart, int yStart, int xEnd, int yEnd) {
+		if (Math.abs(xEnd - xStart) == Math.abs(yEnd - yStart) && xStart != xEnd) {
+            return true;
+        }
+        return false;
+	}
+
     @Override
     public String toString() {
         if ("white".equals(this.color)) {
